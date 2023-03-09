@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Unbounded&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans",sans-serif;
+    box-sizing: border-box;
+}
+
+.image{
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    background-color: black;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+.inner-container{
+    background-color: #ffffff;
+    padding: 150px;
+}
+
+.inner-container h1{
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.text{
+    font-size: 20px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+.title{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+
+#home{
+    background-image: url('./logos/bg.png');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center top 40px;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-repeat: no-repeat;
+    
+}
+
+
+.button{
+    font-size: 0.8rem;
+    font-weight: 700;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    display: inline-block;
+    text-align: center;
+    background: rgba( 255, 255, 255, 0.5 );
+    backdrop-filter: blur( 7px );
+    -webkit-backdrop-filter: blur( 7px );
+    color: black;
+    cursor: pointer;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    transition: all 0.5s;
+    margin-top: 18%;
+    margin-left: 23%;
+}
+
+
+.button span{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+.button span:after{
+    content: '\f101';
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+
+.button:hover{
+    background-color: #FFE15D;
+}
+
+.button:hover span{
+    padding-right: 30px;
+}
+
+.button:hover span::after{
+    opacity: 1;
+    right: 0;
+}
+
+.searchbar{
+    width: 100%;
+    max-width: 300px;
+    display: inline-flex;
+}
+
+.searchbar .input{
+    flex-grow: 1;
+    padding: 10px;
+    outline: none;
+    border: 1px solid green;
+    border-radius: 5px 0 0 5px;
+    background: white;
+    transition: background 0.25s, box-shadow 0.25s;
+}
+
+.searchbar .input:focus{
+    background: white;
+    box-shadow: 0 0 2px aqua;
+}
+
+
+.searchbar .btn-search{
+    color: white;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: all 0.5s;
+    user-select: none;
+}
+
+
+.navbar{
+    font-size: 16px;
+    font-weight: 500;
+    top: 0;
+    left: 0;
+}
+
+@media only screen and (max-width: 992px) {
+    body > nav > div > button:hover,
+    body > nav > div > button:focus{
+        background-color: darkgoldenrod;
+    }
+
+    body > nav > div > button:hover .navbar-toggler,
+    body > nav > div > button:focus .navbar-toggler{
+        color: white;
+    }
+    #navbarSupportedContent > ul >{
+        margin: 1rem;
+        justify-content: flex-end;
+        align-items: flex-end;
+        text-align: right;
+    }
+    #navbarSupportedContent > ul > li:nth-child(n) > a{
+        padding: 10px 0;
+    }
+}
+
+@media (min-width:992px) {
+    .c{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        max-width: 900px;
+        margin: auto;
+    }
+    .c .silver-gray{
+        border-radius: 10px 0 0 10px;
+    }
+    .c .c-gold{
+        border-radius: 0 10px 10px 0;
+    }
+    .card p{
+        margin-bottom: 50px;
+    }
+    footer .copyright p{
+        margin-left: 30vh;
+    }    
+}
+@media (min-width: 1280px){
+    .c{
+        max-width: 1200px;
+    }
+    
+
+}
+
+.navbar-dark .navbar-toggler{
+    border:none;
+    outline: none;
+    font-size: 1.5rem;
+    padding: 7px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s ease;
+    color: white;
+}
+
+.navbar-dark .navbar-toggler:hover, .navbar-toggler:active{
+    color:yellow;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: azure;
+    transition: 0.3s ease;
+}
+.navbar-dark .navbar-nav .nav-link:hover, .navbar i:hover,
+.navbar-dark .navbar-nav .nav-link.active, .navbar i.active{
+    color:#FFE15D;
+}
+
+
+h3{
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+h1{
+    text-transform: uppercase;
+    font-size: 45px;
+    font-family: 'Poppins', sans-serif;
+    color:#FFE15D;
+}
+
+
+hr{
+    width: 50vh;
+    height: 10px;
+    background-color: black;
+}
+
+p{
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.btn{
+    border: 2px solid rgba( 255, 255, 255, 0.5 );
+    border-radius: 30px;
+    background-color: rgba( 255, 255, 255, 0.5 );
+    backdrop-filter: blur( 7px );
+    -webkit-backdrop-filter: blur( 7px );
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+.btn span{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.btn span:after {
+    content: '\f101';
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.btn:hover{
+    background-color: #FFE15D;
+}
+
+.btn:hover span{
+    padding-right: 30px;
+}
+
+.btn:hover span::after{
+    opacity: 1;
+    right: 0;
+}
+
+.silver-gray{
+    background-color: var(--silver-gray);
+    color: #fff;
+    border-radius: 20px 20px 0px 0px;
+}
+.c-gold{
+    background-color: var(--c-gold);
+    border-radius: 0 0 20px 20px;
+    color: #fff;
+}
+
+.card{
+    padding: 30px;
+}
+
+.card img{
+    padding-bottom: 20px;
+    margin: auto;
+}
+
+.card h3{
+    margin-bottom: 20px;
+}
+
+.card p{
+    margin-bottom: 30px;
+}
+
+.fproduct{
+    margin-bottom: 2rem;
+}
+
+.fproduct img{
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.fproduct:hover img{
+    opacity: 0.7;
+}
+
+.star{
+    padding: 10px 0;
+}
+
+.star i{
+    font-size: 0.8rem;
+    color: gold;
+}
+.fproduct .buy-btn{
+    background: rgb(1, 145, 1);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 0.3s all;
+}
+.fproduct:hover .buy-btn{
+    transform: translateY(0);
+    opacity: 1;
+}
+.buy-btn{
+    font-size: 0.8rem;
+    font-weight: 700;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    display: inline-block;
+    cursor: pointer;
+    padding: 15px 30px;
+    text-transform: uppercase;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.925);
+}
+
+footer h5{
+    color: #d1c930;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+footer li{
+    padding-top: 4px;
+}
+
+footer li a{
+    font-size: 0.8rem;
+    color: white;
+}
+
+footer li a:hover{
+    color: #808080;
+}
+
+footer p{
+    color:#979696;
+    font-size: 1rem;
+}
+
+footer .sc a{
+    color: #979696;
+    width: 38px;
+    height: 38px;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+    transition: 0.3s ease;
+    margin: 0 5px;
+}
+
+footer .sc a:hover{
+    color: #808080;
+    background-color: #d1c930;
+}
+
+footer img{
+    margin-top: -65px;
+    margin-right: auto;
+    margin-left: auto;
+}
