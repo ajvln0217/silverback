@@ -94,7 +94,7 @@ if (isset($_SESSION['auth'])) {
 
           <div class="column">
             <div class="form-group">
-              <input type="number" id="contactnum" name="contactnum" placeholder="Enter your Contact Number" />
+              <input type="number" id="contactnum" min=0 name="contactnum" placeholder="Enter your Contact Number" />
             </div>
 
             <div class="form-group">
