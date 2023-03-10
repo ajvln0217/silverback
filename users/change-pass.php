@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../connection/connect.php');
+include('../functions/userfunctions.php');
 
 if (isset($_SESSION['auth'])) {
     $_SESSION['message'] = "You are already logged in";
@@ -124,7 +125,7 @@ if (isset($_SESSION['auth'])) {
                         <input class="form-control" type="password" id="new_cpassword" name="new_cpassword" placeholder="Confirm your Password" autocomplete="off" />
                     </div>
 
-                    <div class="mt-4 pt-4">
+                    <div class="mt-1 pt-1">
                         <button type="submit" role="button" class="button-bttn" name="update_pass" id="update_pass">Update</button>
                     </div>
 

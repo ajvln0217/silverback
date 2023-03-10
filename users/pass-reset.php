@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../connection/connect.php');
+include('../functions/userfunctions.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -22,7 +23,7 @@ function pass_reset($fullname, $email, $token)
     $mail->Port       = 587;
 
     $mail->Username   = "mathewsandiego5@gmail.com";
-    $mail->Password   = "gbsmzqdttuxmmwsw";
+    $mail->Password   = "onenkuytsakbrdub";
     $mail->Mailer     = 'smtp';
 
     $mail->setFrom('mathewsandiego5@gmail.com', 'SilverbackPH');
@@ -78,6 +79,7 @@ if (isset($_POST['submits'])) {
         exit(0);
     }
 }
+
 if (isset($_POST['update_pass'])) {
     $email = mysqli_real_escape_string($conn, $_POST['user_email']);
     $new_pass = mysqli_real_escape_string($conn, $_POST['new_password']);
@@ -100,14 +102,13 @@ if (isset($_POST['update_pass'])) {
                     if ($run) {
 
                         //Para di na magamit yung sinend na link sa email pag mag babago ng password.
-                        $gen_token = md5(rand());
+                        $gen_token = md5(rand()) . "SILVERBACK";
                         $generate_token = "UPDATE users SET token = '$gen_token' WHERE token = '$token' LIMIT 1";
                         $generate_run = mysqli_query($conn, $generate_token);
 
                         $_SESSION['message'] = "Password Updated Successfully";
                         header("Location: ./login.php");
                         exit(0);
-
                     } else {
 
                         $_SESSION['message'] = "Something Went Wrong";
@@ -119,6 +120,10 @@ if (isset($_POST['update_pass'])) {
                     header("Location: ./change-pass.php?token=$token&user_email=$email");
                     exit(0);
                 }
+            } else {
+                $_SESSION['message'] = "Token Expired or have already used";
+                header("Location: ./change-pass.php?token=$token&user_email=$email");
+                exit(0);
             }
         } else {
             $_SESSION['message'] = "All Fields are required";

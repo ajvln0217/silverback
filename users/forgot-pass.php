@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../connection/connect.php');
+include('../functions/userfunctions.php');
 
 if (isset($_SESSION['auth'])) {
     $_SESSION['message'] = "You are already logged in";
