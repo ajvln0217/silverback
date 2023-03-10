@@ -132,7 +132,7 @@ if (isset($_SESSION['auth'])) {
           <br>
           <div class = "mt-2 ms-3" style="display:flex;justify-content:center;">
           <small>
-          <p>Privacy Notice: Your information will be collected and only use during the transaction within the platform. The <b>Silverback</b> website will not sell or give the personal information collected in any third party or organization existed in the internet under the <a href="https://www.privacy.gov.ph/data-privacy-act/">Republic Act 10173 – Data Privacy Act of 2012.</a></p>
+          <p>Privacy Notice: Your information will be collected and only use during the transaction within the platform. The <b>Silverback</b> website will not sell or give the personal information collected in any third party or organization existed in the internet under the <a href="https://www.privacy.gov.ph/data-privacy-act/" target="_blank">Republic Act 10173 – Data Privacy Act of 2012.</a></p>
           </small>
           </div>
 
