@@ -36,7 +36,7 @@ if (isset($_SESSION['auth'])) {
     ?>
     <header>Welcome to Silverback</header>
     <h2>Log-in</h2>
-    <form action="../functions/authentication.php" method="POST">
+    <form class = "form" name = "userForm" id = "userForm" action="../functions/authentication.php" method="POST">
       <div class="field email">
         <div class="input-area">
           <input name="user_email" type="email" placeholder="Email Address">
@@ -60,6 +60,6 @@ if (isset($_SESSION['auth'])) {
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 
+</body>
 </html>
