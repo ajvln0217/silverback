@@ -95,7 +95,6 @@ if (isset($_POST['update_pass'])) {
 
             if (mysqli_num_rows($chck_rn) > 0) {
 
-                if ($new_pass == $cpass) {
                     $update_pass = "UPDATE users SET user_password = $new_pass WHERE token = '$token' LIMIT 1";
                     $run = mysqli_query($conn, $update_pass);
 
@@ -115,11 +114,6 @@ if (isset($_POST['update_pass'])) {
                         header("Location: ./change-pass.php?token=$token&user_email=$email");
                         exit(0);
                     }
-                } else {
-                    $_SESSION['message'] = "Password and Confirm Password does not matched!";
-                    header("Location: ./change-pass.php?token=$token&user_email=$email");
-                    exit(0);
-                }
             } else {
                 $_SESSION['message'] = "Token Expired or have already used";
                 header("Location: ./change-pass.php?token=$token&user_email=$email");

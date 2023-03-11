@@ -77,13 +77,6 @@ function getFrequentPurch(){
 }
 
 
-
-function getProfile(){
-    global $conn;
-    $q = "SELECT * FROM users WHERE role = '1' ";
-    return $q_run = mysqli_query($conn, $q);
-}
-
 function getStaff(){
     global $conn;
     $q = "SELECT * FROM users WHERE role > '1' ";

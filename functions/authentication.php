@@ -57,7 +57,7 @@ if (isset($_POST['sign_up'])) {
     $email = mysqli_real_escape_string($conn, $_POST['user_email']);
     $password = mysqli_real_escape_string($conn, $_POST['user_password']);
 
-    $login_q = "SELECT * FROM `users` WHERE user_email='$email' AND user_password='$password'";
+    $login_q = "SELECT * FROM `users` WHERE BINARY user_email= BINARY '$email' AND BINARY user_password= BINARY'$password'";
     $login_run = mysqli_query($conn, $login_q);
 
     if (mysqli_num_rows($login_run) > 0) {
@@ -73,15 +73,20 @@ if (isset($_POST['sign_up'])) {
         $_SESSION['auth_user'] = [
             'user_id' => $userid,
             'username' => $username,
-            'user_email' => $useremail
+            'user_email' => $useremail,
+            'role' => $role
         ];
 
         $_SESSION['role'] = $role;
 
-        if ($role > 0) {
+        if ($role == 1 && $role != 0) {
             $update = "UPDATE users SET lastactivity =now() WHERE user_id =".$_SESSION['auth_user']['user_id'];
             $q = mysqli_query($conn,$update);
             redirect("../admin/home.php", "Welcome to your Dashboard");
+        } else if ($role == 3 && $role != 0){
+            $update = "UPDATE users SET lastactivity =now() WHERE user_id =".$_SESSION['auth_user']['user_id'];
+            $q = mysqli_query($conn,$update);
+            redirect("../staff/home.php", "Welcome to your Dashboard");
         } else {
             redirect("../category/category.php", "Logged In Successfully");
         }

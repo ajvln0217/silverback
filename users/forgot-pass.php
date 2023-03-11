@@ -134,7 +134,7 @@ if (isset($_SESSION['auth'])) {
                     user_email: {
                         email: true,
                         required: true,
-                    },
+                    },					
                 },
                 messages: {
                     user_email: {
