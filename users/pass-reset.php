@@ -23,7 +23,7 @@ function pass_reset($fullname, $email, $token)
     $mail->Port       = 587;
 
     $mail->Username   = "mathewsandiego5@gmail.com";
-    $mail->Password   = "onenkuytsakbrdub";
+    $mail->Password   = "wihuvqjyptsdnnjz";
     $mail->Mailer     = 'smtp';
 
     $mail->setFrom('mathewsandiego5@gmail.com', 'SilverbackPH');
