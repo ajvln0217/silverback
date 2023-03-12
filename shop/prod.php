@@ -114,7 +114,7 @@ include('../functions/userfunctions.php');
                 <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-xl-end" aria-labelledby="navbarDarkDropdownMenuLink">
                   <h6 class="dropdown-header">Menu</h6>
                   <a class="dropdown-item" id="myord" href="../orders/myorder.php"><i class="fas fa-shopping-bag"></i> My Order
-                  <?php
+                    <?php
                     global $conn;
                     $user_id = $_SESSION['auth_user']['user_id'];
                     $query = "SELECT * FROM `orders` WHERE user_id = '$user_id' AND order_status = '0' OR order_status = '1' AND user_id = '$user_id' AND order_status1 = '0'";
@@ -153,8 +153,12 @@ include('../functions/userfunctions.php');
   <?php
   if (isset($_GET['view_product'])) {
     $prod_index = $_GET['view_product'];
+    $cat_prod = $_GET['cat_prod'];
+
     $product_data = getProdIndexName("products", $prod_index);
     $product = mysqli_fetch_array($product_data);
+    $cat_index = getIndexName("category", $cat_prod);
+    $cat_name = mysqli_fetch_array($cat_index);
 
     if ($product['prod_qty'] > 0) {
   ?>
@@ -164,7 +168,7 @@ include('../functions/userfunctions.php');
             <div class="my-5 py-1 pb-0">
               <nav style="--bs-breadcrumb-divider: ' >';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item" style="font-size: 20px; font-weight: 700"><a href="../category/category.php">Categories</a></li>
+                  <li class="breadcrumb-item" style="font-size: 20px; font-weight: 700"><a href="../shop/shop.php?category=<?= $cat_name['cat_index'] ?>"><?= $cat_name['cat_name'] ?></a></li>
                   <li class="breadcrumb-item active">
                     <p style="white-space:nowrap;font-size: 20px;"><?= $product['prod_name'] ?></p>
                   </li>
@@ -224,8 +228,8 @@ include('../functions/userfunctions.php');
                       <button class="btn btn-success px-3 addToCart" id="cartinc" type="submit" value="<?= $product['prod_id'] ?>"><i class='fas fa-shopping-cart'></i> Add to Cart</button>
                     </div>
                     <!--<div class="col-md-6">
-                    <button class="btn btn-danger px-4"><i class="fas fa-times-circle"></i> Cancel</button>
-                  </div>-->
+                        <button class="btn btn-danger px-4"><i class="fas fa-times-circle"></i> Cancel</button>
+                      </div>-->
                   </div>
                 </div>
               </div>

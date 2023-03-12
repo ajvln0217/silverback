@@ -30,6 +30,7 @@ function getPopular()
     return $dquery_run = mysqli_query($conn, $dquery);
 }
 
+
 function getProdByCat($category_id)
 {
     global $conn;
@@ -76,6 +77,19 @@ function getNotIn(){
     $query = "SELECT * FROM orders WHERE order_id NOT IN (SELECT order_id FROM orders);";
     return $query_run = mysqli_query($conn, $query);
 }
+
+function getIPAddress(){
+    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+      $ip = $_SERVER['HTTP_CLIENT_IP'];
+    }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+      $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+    else{
+      $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+  }
+  
 function redirect($url, $message)
 {
     $_SESSION['message'] = $message;

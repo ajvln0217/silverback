@@ -138,7 +138,7 @@ if (isset($_POST['add_category'])) {
     $new_image3 = $_FILES['prod_img3']['name'];
     $old_image3 = $_POST['old_image3'];
 
-    if ($new_image != "" OR $new_image1 != "" OR $new_image2 != "" OR $new_image3 != "") {
+    if ($new_image != "" or $new_image1 != "" or $new_image2 != "" or $new_image3 != "") {
         $image_extension = pathinfo($image, PATHINFO_EXTENSION);
         $update_filename = $new_image;
         $image_extension1 = pathinfo($image1, PATHINFO_EXTENSION);
@@ -182,48 +182,48 @@ if (isset($_POST['add_category'])) {
     $delete_query_run = mysqli_query($conn, $delete_query);
 
     if ($delete_query_run) {
-        
+
         echo 200;
     } else {
         echo 500;
     }
-
-}elseif(isset($_POST['update_order'])){
+} elseif (isset($_POST['update_order'])) {
     $track_no = $_POST['tracking_no'];
     $order_status = $_POST['o_status'];
 
     $update_q = "UPDATE `orders` SET order_status = '$order_status' WHERE tracking_no = '$track_no'";
     $updateq_run = mysqli_query($conn, $update_q);
 
-    redirect("./transaction.php","Order Status Updated!");
+    redirect("./transaction.php", "Order Status Updated!");
+} elseif (isset($_POST['add_user'])) {
 
-    
-}elseif(isset($_POST['add_user'])){
+    //para sa users_account
+    $name = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, $_POST['user_password']);
+    $cpassword = mysqli_real_escape_string($conn, $_POST['cpassword']);
+    $email = mysqli_real_escape_string($conn, $_POST['user_email']);
 
-     //para sa users_account
-     $name = mysqli_real_escape_string($conn, $_POST['username']);
-     $password = mysqli_real_escape_string($conn, $_POST['user_password']);
-     $cpassword = mysqli_real_escape_string($conn, $_POST['cpassword']);
-     $email = mysqli_real_escape_string($conn, $_POST['user_email']);
- 
-     //para sa users_info
-     $fname = mysqli_real_escape_string($conn, $_POST['fname']); 
-     $lname = mysqli_real_escape_string($conn, $_POST['lname']); 
-     $contactnum = mysqli_real_escape_string($conn, $_POST['contactnum']);  
-     $birthday = mysqli_real_escape_string($conn, $_POST['birthday']); 
-     $address = mysqli_real_escape_string($conn, $_POST['address']);
-     $city = mysqli_real_escape_string($conn, $_POST['city']);
-     $region = mysqli_real_escape_string($conn, $_POST['region']);
-     $zip = mysqli_real_escape_string($conn, $_POST['zip']);
+    //para sa users_info
+    $fname = mysqli_real_escape_string($conn, $_POST['fname']);
+    $lname = mysqli_real_escape_string($conn, $_POST['lname']);
+    $contactnum = mysqli_real_escape_string($conn, $_POST['contactnum']);
+    $birthday = mysqli_real_escape_string($conn, $_POST['birthday']);
+    $address = mysqli_real_escape_string($conn, $_POST['address']);
+    $city = mysqli_real_escape_string($conn, $_POST['city']);
+    $region = mysqli_real_escape_string($conn, $_POST['region']);
+    $zip = mysqli_real_escape_string($conn, $_POST['zip']);
+    $ip_add = getIPAddress();
+    $token = md5(rand());
 
 
-     $role = isset($_POST['role']) ? '2' : '0';
-     $role = isset($_POST['role']) ? '3' : '0';
 
-     $image = $_FILES['image']['name'];
-     $image_tmp = $_FILES['image']['tmp_name'];
-     $path = "../admin/profile/";
-     $image_extension = pathinfo($image, PATHINFO_EXTENSION);
+    $role = isset($_POST['role']) ? '2' : '0';
+    $role = isset($_POST['role']) ? '3' : '0';
+
+    $image = $_FILES['image']['name'];
+    $image_tmp = $_FILES['image']['tmp_name'];
+    $path = "../admin/profile/";
+    $image_extension = pathinfo($image, PATHINFO_EXTENSION);
 
     $email_validation = "SELECT user_email FROM `users` WHERE user_email='$email'";
     $e_run = mysqli_query($conn, $email_validation);
@@ -233,9 +233,9 @@ if (isset($_POST['add_category'])) {
         header('Location: ./users/addusers.php');
     } else {
 
-        if (!empty($name) && !empty($password) && !empty($cpassword) && !empty($email) && !empty($fname) && !empty($lname) && !empty($contactnum) && !empty($birthday) && !empty($address) && !empty($city) && !empty($region) && !empty($zip) && !empty($image) && !empty($role) ) {
+        if (!empty($name) && !empty($password) && !empty($cpassword) && !empty($email) && !empty($fname) && !empty($lname) && !empty($contactnum) && !empty($birthday) && !empty($address) && !empty($city) && !empty($region) && !empty($zip) && !empty($image) && !empty($role)) {
 
-            $insert_query = "INSERT INTO `users` (username,user_email,user_password,fname,lname,contactnum,birthday,address,city,region,zip,image,role) VALUES ('$name','$email','$password','$fname','$lname','$contactnum','$birthday','$address','$city','$region','$zip','$image','$role')";
+            $insert_query = "INSERT INTO `users` (username,user_email,user_password,fname,lname,contactnum,birthday,address,city,region,zip,image,role,ip_add,token) VALUES ('$name','$email','$password','$fname','$lname','$contactnum','$birthday','$address','$city','$region','$zip','$image','$role','$ip_add','$token')";
             $stmt = $conn->prepare($insert_query);
             $stmt->execute();
 
@@ -246,19 +246,18 @@ if (isset($_POST['add_category'])) {
                 $_SESSION['message'] = "Something went wrong";
                 header('Location: ./users/addusers.php');
             }
-        }elseif($password != $cpassword){
+        } elseif ($password != $cpassword) {
             $_SESSION['message'] = "Password Does not Matched!";
             header('Location: ./users/addusers.php');
-        }else {
+        } else {
             $_SESSION['message'] = "Please Fill all the information!";
             header('Location: ./users/addusers.php');
         }
     }
- 
-}elseif(isset($_POST['update_user'])){
+} elseif (isset($_POST['update_user'])) {
     $users_id = $_POST['users_id'];
     $user_role = $_POST['user_role'];
-    
+
     //para sa users_account
     $name = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['user_password']);
@@ -266,57 +265,58 @@ if (isset($_POST['add_category'])) {
     $email = mysqli_real_escape_string($conn, $_POST['user_email']);
 
     //para sa users_info
-    $fname = mysqli_real_escape_string($conn, $_POST['fname']); 
-    $lname = mysqli_real_escape_string($conn, $_POST['lname']); 
-    $contactnum = mysqli_real_escape_string($conn, $_POST['contactnum']);  
-    $birthday = mysqli_real_escape_string($conn, $_POST['birthday']); 
+    $fname = mysqli_real_escape_string($conn, $_POST['fname']);
+    $lname = mysqli_real_escape_string($conn, $_POST['lname']);
+    $contactnum = mysqli_real_escape_string($conn, $_POST['contactnum']);
+    $birthday = mysqli_real_escape_string($conn, $_POST['birthday']);
     $address = mysqli_real_escape_string($conn, $_POST['address']);
     $city = mysqli_real_escape_string($conn, $_POST['city']);
     $region = mysqli_real_escape_string($conn, $_POST['region']);
     $zip = mysqli_real_escape_string($conn, $_POST['zip']);
-    
+    $ip_add = getIPAddress();
+    $token = md5(rand());
+
+
     $image = $_FILES['image']['name'];
     $new_image = $_FILES['image']['name'];
     $old_image = $_POST['old_image'];
     $path = "./profile/";
 
-    if($new_image != ""){
+    if ($new_image != "") {
         $update_filename = $new_image;
-    }else{
+    } else {
         $update_filename = $old_image;
     }
 
-    $q_up = "UPDATE `users` SET username = '$name', user_password = '$password', user_email = '$email', fname='$fname', lname = '$lname', contactnum = '$contactnum', birthday = '$birthday', address = '$address', city = '$city', region = '$region', zip = '$zip', image = '$update_filename', role = '$user_role' WHERE user_id = '$users_id'";
-    $q_up_run = mysqli_query($conn,$q_up);
+    $q_up = "UPDATE `users` SET username = '$name', user_password = '$password', user_email = '$email', fname='$fname', lname = '$lname', contactnum = '$contactnum', birthday = '$birthday', address = '$address', city = '$city', region = '$region', zip = '$zip', image = '$update_filename', role = '$user_role', ip_add = '$ip_add' WHERE user_id = '$users_id'";
+    $q_up_run = mysqli_query($conn, $q_up);
 
-    if($q_up_run){
-        if($_FILES['image']['name'] != ""){
+    if ($q_up_run) {
+        if ($_FILES['image']['name'] != "") {
             move_uploaded_file($_FILES['image']['tmp_name'], $path . '/' . $new_image);
         }
     }
 
     redirect("./users/editusers.php?id=$users_id", "User Info Updated Successfully");
-    
-}elseif(isset($_POST['delete_user'])){
-    $users_id =mysqli_real_escape_string($conn, $_POST['users_id']);
+} elseif (isset($_POST['delete_user'])) {
+    $users_id = mysqli_real_escape_string($conn, $_POST['users_id']);
 
     $u_q = "SELECT * FROM `users` WHERE user_id = '$users_id'";
-    $uq_hashire = mysqli_query($conn,$u_q);
+    $uq_hashire = mysqli_query($conn, $u_q);
     $user_data = mysqli_fetch_array($uq_hashire);
     $image = $user_data['image'];
 
     $del_q = "DELETE FROM `users` WHERE user_id = '$users_id'";
     $delq_hashire = mysqli_query($conn, $del_q);
 
-    if($delq_hashire){
-        if(file_exists("./admin/profile/" .$image)){
+    if ($delq_hashire) {
+        if (file_exists("./admin/profile/" . $image)) {
             unlink("./admin/profile/" . $image);
         }
         echo 200;
-    }else{
+    } else {
         echo 500;
     }
-}
-else {
+} else {
     header("Location: ../home.php");
 }

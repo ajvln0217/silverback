@@ -298,7 +298,7 @@ include('./connection/connect.php');
                 </div>
                 <div class="modal-body">
                   <?php
-                  $query = mysqli_query($conn, "SELECT * FROM `products` WHERE prod_qty = '0' OR prod_qty < '0'");
+                  $query = mysqli_query($conn, "SELECT * FROM `products` WHERE prod_qty = '0' OR prod_qty < '5'");
                   if (mysqli_num_rows($query) > 0) {
                     foreach ($query as $q => $data) {
                   ?>
@@ -323,7 +323,7 @@ include('./connection/connect.php');
                   <?php
                     }
                   } else {
-                    echo "All goods! No Out of Stock Product.";
+                    echo "All goods! No Low Stock Product.";
                   }
                   ?>
                 </div>
@@ -335,7 +335,7 @@ include('./connection/connect.php');
           </div>
           
           <div class="card text-dark h-100" style="background: rgba( 126, 211, 33, 0.65 );backdrop-filter: blur( 20px );-webkit-backdrop-filter: blur( 20px );border-radius: 10px;border: 1px solid rgba( 255, 255, 255, 0.18 );">
-            <div class="card-body" style="text-align:center;padding-bottom:20px">Number of Out of Stocks</div>
+            <div class="card-body" style="text-align:center;padding-bottom:20px">Number of Low Stock Product</div>
             <?php
             $count = getOutofStocks(); {
               while ($d = $count->fetch_assoc()) {

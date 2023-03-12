@@ -21,6 +21,7 @@ if (isset($_POST['sign_up'])) {
     $city = mysqli_real_escape_string($conn, $_POST['city']);
     $region = mysqli_real_escape_string($conn, $_POST['region']);
     $zip = mysqli_real_escape_string($conn, $_POST['zip']);
+    $ip_add = getIPAddress();
     $token = md5(rand());
 
     $image = $_FILES['image']['name'];
@@ -37,7 +38,7 @@ if (isset($_POST['sign_up'])) {
 
         if (!empty($name) && !empty($password)) {
 
-            $insert_query = "INSERT INTO `users` (username,user_email,user_password,fname,lname,contactnum,birthday,address,city,region,zip,image,token) VALUES ('$name','$email','$password','$fname','$lname','$contactnum','$birthday','$address','$city','$region','$zip','$image','$token')";
+            $insert_query = "INSERT INTO `users` (username,user_email,user_password,fname,lname,contactnum,birthday,address,city,region,zip,image,ip_add,token) VALUES ('$name','$email','$password','$fname','$lname','$contactnum','$birthday','$address','$city','$region','$zip','$image','$ip_add','$token')";
             $stmt = $conn->prepare($insert_query);
             $stmt->execute();
 
@@ -56,6 +57,7 @@ if (isset($_POST['sign_up'])) {
 } else if (isset($_POST['log_in'])) {
     $email = mysqli_real_escape_string($conn, $_POST['user_email']);
     $password = mysqli_real_escape_string($conn, $_POST['user_password']);
+    $fetch_ip = getIPAddress();
 
     $login_q = "SELECT * FROM `users` WHERE BINARY user_email= BINARY '$email' AND BINARY user_password= BINARY'$password'";
     $login_run = mysqli_query($conn, $login_q);
@@ -88,6 +90,8 @@ if (isset($_POST['sign_up'])) {
             $q = mysqli_query($conn,$update);
             redirect("../staff/home.php", "Welcome to your Dashboard");
         } else {
+            $update = "UPDATE users SET ip_add = '$fetch_ip' WHERE user_id =".$_SESSION['auth_user']['user_id'];
+            $q = mysqli_query($conn,$update);
             redirect("../category/category.php", "Logged In Successfully");
         }
     } else {

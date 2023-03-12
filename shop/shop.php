@@ -182,7 +182,7 @@ $cid = $category['cat_id'];
                         <div class="card-text">
                           <p style="color:white;">Stocks Available: <?= $item['prod_qty']; ?></p>
                         </div>
-                        <a href='../shop/prod.php?view_product=<?= $item['prod_index'] ?>' class='btn view-prod'><i class='fas fa-shopping-cart'></i> <span> View Product </span></a>
+                        <a href='../shop/prod.php?cat_prod=<?= $category['cat_index'];?>&view_product=<?= $item['prod_index'] ?>' class='btn view-prod'><i class='fas fa-shopping-cart'></i> <span> View Product </span></a>
                       </div>
                     </div>
                   </div>

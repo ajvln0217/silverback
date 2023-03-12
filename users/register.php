@@ -1,13 +1,17 @@
 <?php
 session_start();
 include('../connection/connect.php');
+include('../functions/userfunctions.php');
 
 if (isset($_SESSION['auth'])) {
   $_SESSION['message'] = "You are already logged in";
   header('Location: ../index.php');
   exit();
 }
+
+$fetch_ip = getIPAddress();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -129,6 +133,9 @@ if (isset($_SESSION['auth'])) {
             </div>
           </div>
 
+          <?php 
+          
+          ?>
           <br>
           <div class = "mt-2 ms-3" style="display:flex;justify-content:center;">
           <small>

@@ -42,7 +42,7 @@ function getQtySUM(){
 
 function getOutofStocks(){
     global $conn;
-    $q = "SELECT COUNT(*) AS count FROM `products` WHERE prod_qty = 0 OR prod_qty < 0";
+    $q = "SELECT COUNT(*) AS count FROM `products` WHERE prod_qty = 0 OR prod_qty < 5";
     return $q_run = mysqli_query($conn, $q);
 }
 

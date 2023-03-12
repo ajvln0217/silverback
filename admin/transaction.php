@@ -201,6 +201,7 @@ include('./admin.php');
                                     echo "";
                                 } else {
                                     echo "<span class='position-absolute top-40 start-10 translate-middle badge badge-light'>New Order</span>";
+                                    
                                 }
                                 ?>
                             </span>

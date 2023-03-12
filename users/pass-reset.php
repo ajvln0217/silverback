@@ -35,13 +35,12 @@ function pass_reset($fullname, $email, $token)
     $email_body = "
     <h2>Greetings,</h2>
     <p>You've recieved this email because you recently requested to reset your password from <b>Silverback Gaming and Office Chair</b>.
-    <br><p>In order for you to continue, kindly open the link mentioned above to reset your password.<br>
+    <br><p>In order for you to continue, kindly open the link mentioned above to reset your password.<br><br>
     <a href='http://localhost/silverback/users/change-pass.php?token=$token&user_email=$email'>Reset Password</a>
     <br><br>
     <p>If you think this mail was send mistakenly nor made not any request from the site, please 
-    <br><p>disregard this message<br><br>
-    <p>Thanks<br><br>
-    <p>Best Regards, <b>Silverback PH</b>
+    disregard this message.<br><br>
+    <p>Thanks, <br>Best Regards, <br><br><b>Silverback PH</b>
     ";
 
     $mail->Body = $email_body;
@@ -101,7 +100,7 @@ if (isset($_POST['update_pass'])) {
                     if ($run) {
 
                         //Para di na magamit yung sinend na link sa email pag mag babago ng password.
-                        $gen_token = md5(rand()) . "SILVERBACK";
+                        $gen_token = md5(rand());
                         $generate_token = "UPDATE users SET token = '$gen_token' WHERE token = '$token' LIMIT 1";
                         $generate_run = mysqli_query($conn, $generate_token);
 

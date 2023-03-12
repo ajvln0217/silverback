@@ -4,6 +4,7 @@ include('../connection/connect.php');
 include('../functions/userfunctions.php');
 include('../cart/validator.php');
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -172,11 +173,9 @@ include('../cart/validator.php');
               <tbody>
                 <?php
                 $user_id = $_SESSION['auth_user']['user_id'];
-                $qOrder = "SELECT * FROM `orders` WHERE order_status1 ='0' AND order_status ='0' OR order_status = '1' AND order_status1 ='0' AND $user_id = user_id";
+                $qOrder = "SELECT * FROM `orders` WHERE order_status1 ='0' AND order_status ='0' OR order_status = '1' AND order_status1 ='0' AND user_id = '$user_id'";
                 $qrun = mysqli_query($conn, $qOrder);
                 while ($row = mysqli_fetch_array($qrun)) {
-
-
                   if ($user_id == $row['user_id']) {
                 ?>
                     <tr>
