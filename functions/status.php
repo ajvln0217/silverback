@@ -29,7 +29,7 @@ function sendNotification($track_no)
   $mail->addAddress('mathewsandiego5@gmail.com');
 
   $mail->isHTML(true);
-  $mail->Subject = 'Silverback | Reset Password';
+  $mail->Subject = 'Silverback | Item Receive';
 
   $email_body = "
   <h2>Greetings,</h2>

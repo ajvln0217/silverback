@@ -30,7 +30,7 @@ function sendNotification()
   $mail->addAddress('mathewsandiego5@gmail.com');
 
   $mail->isHTML(true);
-  $mail->Subject = 'Silverback | Reset Password';
+  $mail->Subject = 'Silverback | New Order';
 
   $email_body = "
   <h2>Greetings,</h2>
