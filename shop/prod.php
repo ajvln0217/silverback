@@ -168,6 +168,7 @@ include('../functions/userfunctions.php');
             <div class="my-5 py-1 pb-0">
               <nav style="--bs-breadcrumb-divider: ' >';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
+                <li class="breadcrumb-item" style="font-size: 20px; font-weight: 700"><a href="../category/category.php">Categories</a></li>
                   <li class="breadcrumb-item" style="font-size: 20px; font-weight: 700"><a href="../shop/shop.php?category=<?= $cat_name['cat_index'] ?>"><?= $cat_name['cat_name'] ?></a></li>
                   <li class="breadcrumb-item active">
                     <p style="white-space:nowrap;font-size: 20px;"><?= $product['prod_name'] ?></p>
