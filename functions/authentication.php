@@ -32,7 +32,7 @@ if (isset($_POST['sign_up'])) {
     $e_run = mysqli_query($conn, $email_validation);
 
     $username_validation = "SELECT username FROM `users` WHERE username='$name'";
-    $run = mysqli_query($conn, $run);
+    $run = mysqli_query($conn, $username_validation);
 
     if (mysqli_num_rows($e_run) > 0) {
         $_SESSION['message'] = "That email is already registered!";
