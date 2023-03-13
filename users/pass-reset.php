@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require './vendor/autoload.php';
 
-function pass_reset($fullname, $email, $token)
+function pass_reset($fname, $lname, $email, $token)
 {
 
     $mail = new PHPMailer(true);
@@ -33,7 +33,7 @@ function pass_reset($fullname, $email, $token)
     $mail->Subject = 'Silverback | Reset Password';
 
     $email_body = "
-    <h2>Greetings,</h2>
+    <h2>Greetings, $fname $lname</h2>
     <p>You've recieved this email because you recently requested to reset your password from <b>Silverback Gaming and Office Chair</b>.
     <br><p>In order for you to continue, kindly open the link mentioned above to reset your password.<br><br>
     <a href='http://localhost/silverback/users/change-pass.php?token=$token&user_email=$email'>Reset Password</a>
@@ -51,19 +51,20 @@ if (isset($_POST['submits'])) {
     $email = mysqli_real_escape_string($conn, $_POST['user_email']);
     $token = md5(rand());
 
-    $email_q = "SELECT user_email, CONCAT(fname,' ',lname) AS full_name FROM users WHERE user_email = '$email' LIMIT 1";
+    $email_q = "SELECT user_email, fname, lname FROM users WHERE user_email = '$email' LIMIT 1";
     $q_run = mysqli_query($conn, $email_q);
 
     if (mysqli_num_rows($q_run) > 0) {
         $arr = mysqli_fetch_array($q_run);
-        $fullname = $arr['full_name'];
+        $fname = $arr['fname'];
+        $lname = $arr['lname'];
         $email = $arr['user_email'];
 
         $update_q = "UPDATE users SET token='$token' WHERE user_email = '$email' LIMIT 1";
         $up_q = mysqli_query($conn, $update_q);
 
         if ($up_q) {
-            pass_reset($username, $email, $token);
+            pass_reset($fname, $lname, $email, $token);
             $_SESSION['message'] = "We E-mailed you a link for the password reset!";
             header("Location: ./forgot-pass.php");
             exit(0);

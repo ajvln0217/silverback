@@ -31,10 +31,16 @@ if (isset($_POST['sign_up'])) {
     $email_validation = "SELECT user_email FROM `users` WHERE user_email='$email'";
     $e_run = mysqli_query($conn, $email_validation);
 
+    $username_validation = "SELECT username FROM `users` WHERE username='$name'";
+    $run = mysqli_query($conn, $run);
+
     if (mysqli_num_rows($e_run) > 0) {
         $_SESSION['message'] = "That email is already registered!";
         header('Location: ../users/register.php');
-    } else {
+    } elseif (mysqli_num_rows($run) > 0){
+        $_SESSION['message'] = "That username is already taken! Choose another username";
+        header('Location: ../users/register.php');
+    }else {
 
         if (!empty($name) && !empty($password)) {
 
