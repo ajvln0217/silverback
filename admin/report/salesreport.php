@@ -345,9 +345,9 @@ if (isset($_SESSION['auth'])) {
                     },
                     dataType: "json",
                     success: function(data) {
-                        var i = "1";
 
                         $('#sales_report').DataTable({
+                            order:[[2,'desc'], [0,'asc']],
                             searching: false,
                             "data": data,
                             dom: "<'row'<'col-sm-12 col-md-8'l><'col-sm-12 col-md-4'B><'col-sm-12 col-md-5'f>>" + "<'row'<'col-sm-12'rt>>" + "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-4'p>>",
@@ -372,7 +372,7 @@ if (isset($_SESSION['auth'])) {
                             "columns": [{
                                     "data": "o_order_id",
                                     "render": function(data, type, row, meta) {
-                                        return `0000` + i++;
+                                        return `0000` + `${row.o_order_id}`;
                                     }
                                 },
                                 {
