@@ -270,7 +270,7 @@ if (isset($_SESSION['auth'])) {
                         </div>
                         <div class="row mt-5">
                             <div class="col-md-12">
-                                <table id="sales_report" class="table table-bordered table-striped">
+                                <table data-order = '[[0, "desc"]]' id="sales_report" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>Order ID</th>
@@ -347,7 +347,6 @@ if (isset($_SESSION['auth'])) {
                     success: function(data) {
 
                         $('#sales_report').DataTable({
-                            order:[[2,'desc'], [0,'asc']],
                             searching: false,
                             "data": data,
                             dom: "<'row'<'col-sm-12 col-md-8'l><'col-sm-12 col-md-4'B><'col-sm-12 col-md-5'f>>" + "<'row'<'col-sm-12'rt>>" + "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-4'p>>",
