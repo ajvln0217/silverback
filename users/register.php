@@ -20,7 +20,7 @@ $fetch_ip = getIPAddress();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" />
   <link rel="stylesheet" href="./register.css">
   <title>Silverback | Registration Form</title>
 </head>
@@ -112,8 +112,26 @@ $fetch_ip = getIPAddress();
             <input type="text" name="city" placeholder="Enter your City" />
           </div>
           <div class="column form-group">
-            <input type="text" name="region" placeholder="Enter your Region">
-            <input type="number" name="zip" min=0 placeholder="Enter your Zip Code" />
+            <select name="region" class="form-select">
+              <option value="National Capital Region">National Capital Region</option>
+              <option value="Ilocos Region">Ilocos Region</option>
+              <option value="Cagayan Valley">Cagayan Valley</option>
+              <option value="Central Luzon">Central Luzon</option>
+              <option value="CALABARZON">CALABARZON</option>
+              <option value="MIMAROPA">MIMAROPA</option>
+              <option value="Bicol Region">Bicol Region</option>
+              <option value="Western Visayas">Western Visayas</option>
+              <option value="Central Visayas">Central Visayas</option>
+              <option value="Eastern Visayas">Eastern Visayas</option>
+              <option value="Zamboanga Peninsul">Zamboanga Peninsula</option>
+              <option value="Northern Mindanao">Northern Mindanao</option>
+              <option value="Davao Region">Davao Region</option>
+              <option value="SOCCSKSARGEN">SOCCSKSARGEN</option>
+              <option value="Caraga">Caraga</option>
+              <option value="CAR - Cordillera Administrative Region">CAR - Cordillera Administrative Region</option>
+              <option value="BARMM - Bangsamoro Autonomous Region in Muslim Mindanao">BARMM - Bangsamoro Autonomous Region in Muslim Mindanao</option>
+            </select>
+            <input type="number" style="height:5.5vh; margin-top: -0.1vh;" name="zip" min=0 placeholder="Enter your Zip Code" />
           </div>
 
           <div class="modal fade" id="policy" tabindex="-1" aria-hidden="true">
@@ -133,18 +151,18 @@ $fetch_ip = getIPAddress();
             </div>
           </div>
 
-          <?php 
-          
+          <?php
+
           ?>
           <br>
-          <div class = "mt-2 ms-3" style="display:flex;justify-content:center;">
-          <small>
-          <p>Privacy Notice: Your information will be collected and only use during the transaction within the platform. The <b>Silverback</b> website will not sell or give the personal information collected in any third party or organization existed in the internet under the <a href="https://www.privacy.gov.ph/data-privacy-act/" target="_blank">Republic Act 10173 – Data Privacy Act of 2012.</a></p>
-          </small>
+          <div class="mt-2 ms-3" style="display:flex;justify-content:center;">
+            <small>
+              <p>Privacy Notice: Your information will be collected and only use during the transaction within the platform. The <b>Silverback</b> website will not sell or give the personal information collected in any third party or organization existed in the internet under the <a href="https://www.privacy.gov.ph/data-privacy-act/" target="_blank">Republic Act 10173 – Data Privacy Act of 2012.</a></p>
+            </small>
           </div>
 
           <div class="mt-3 ms-5" style="display:inline-flex;justify-content:center;">
-            <input type="checkbox" name="agree" id="agree" style="margin-top:-6vh; margin-right: 1vh;"/>
+            <input type="checkbox" name="agree" id="agree" style="margin-top:-6vh; margin-right: 1vh;" />
             <p for="agree">&nbsp;By clicking this, you are agree in providing your personal &nbsp;information within the platform.</p>
           </div>
 
