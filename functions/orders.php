@@ -26,8 +26,8 @@ function sendNotification()
   $mail->Password   = "itsljtcndclskecu";
   $mail->Mailer     = 'smtp';
 
-  $mail->setFrom('mathewsandiego5@gmail.com', 'SilverbackPH');
-  $mail->addAddress('mathewsandiego5@gmail.com');
+  $mail->setFrom('silverbackph.official@gmail.com', 'SilverbackPH');
+  $mail->addAddress('silverbackph.official@gmail.com');
 
   $mail->isHTML(true);
   $mail->Subject = 'Silverback | New Order';
