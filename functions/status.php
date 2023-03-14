@@ -21,12 +21,12 @@ function sendNotification($track_no)
   $mail->Host       = 'smtp.gmail.com';
   $mail->Port       = 587;
 
-  $mail->Username   = "mathewsandiego5@gmail.com";
-  $mail->Password   = "wihuvqjyptsdnnjz";
+  $mail->Username   = "silverbackph.official@gmail.com";
+  $mail->Password   = "itsljtcndclskecu";
   $mail->Mailer     = 'smtp';
 
-  $mail->setFrom('mathewsandiego5@gmail.com', 'SilverbackPH');
-  $mail->addAddress('mathewsandiego5@gmail.com');
+  $mail->setFrom('silverbackph.official@gmail.com', 'SilverbackPH');
+  $mail->addAddress('silverbackph.official@gmail.com');
 
   $mail->isHTML(true);
   $mail->Subject = 'Silverback | Item Receive';
@@ -52,7 +52,7 @@ if (isset($_SESSION['auth'])) {
         $st = $d['order_status'];
 
         if ($q_run) {
-            //sendNotification($track_no);
+            sendNotification($track_no);
             if ($st != '0') {
                 $update_q = "UPDATE `orders` SET order_status1 = '$receive'  WHERE tracking_no = '$track_no'";
                 $updateq_run = mysqli_query($conn, $update_q);

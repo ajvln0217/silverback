@@ -22,8 +22,8 @@ function sendNotification()
   $mail->Host       = 'smtp.gmail.com';
   $mail->Port       = 587;
 
-  $mail->Username   = "mathewsandiego5@gmail.com";
-  $mail->Password   = "wihuvqjyptsdnnjz";
+  $mail->Username   = "silverbackph.official@gmail.com";
+  $mail->Password   = "itsljtcndclskecu";
   $mail->Mailer     = 'smtp';
 
   $mail->setFrom('mathewsandiego5@gmail.com', 'SilverbackPH');
@@ -76,7 +76,7 @@ if(isset($_SESSION['auth'])){
 
         if($o_run){
             $order_id = mysqli_insert_id($conn);
-            //sendNotification(); //Send sa Admin na may bagong Order
+            sendNotification(); //Send sa Admin na may bagong Order
             foreach ($query_run as $cart => $res) {
 
                 $prod_id = $res['prod_id'];

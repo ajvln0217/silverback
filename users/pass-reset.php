@@ -22,11 +22,11 @@ function pass_reset($fname, $lname, $email, $token)
     $mail->Host       = 'smtp.gmail.com';
     $mail->Port       = 587;
 
-    $mail->Username   = "mathewsandiego5@gmail.com";
-    $mail->Password   = "wihuvqjyptsdnnjz";
+    $mail->Username   = "silverbackph.official@gmail.com";
+    $mail->Password   = "itsljtcndclskecu";
     $mail->Mailer     = 'smtp';
 
-    $mail->setFrom('mathewsandiego5@gmail.com', 'SilverbackPH');
+    $mail->setFrom('silverbackph.official@gmail.com', 'SilverbackPH');
     $mail->addAddress($email);
 
     $mail->isHTML(true);

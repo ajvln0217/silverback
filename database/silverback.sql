@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2023 at 05:08 AM
+-- Generation Time: Mar 14, 2023 at 01:11 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -105,7 +105,11 @@ INSERT INTO `orders` (`order_id`, `tracking_no`, `user_id`, `total_price`, `paym
 (18, 'SLVRBCK-1000573347095', 19, '8000.00', 'COD', NULL, 2, 1, NULL, '2023-03-09 07:49:13'),
 (19, 'SLVRBCK-1000878935413', 20, '5500.00', 'COD', NULL, 2, 1, NULL, '2023-03-10 02:28:47'),
 (20, 'SLVRBCK-1000124348531', 21, '5500.00', 'COD', NULL, 2, 1, NULL, '2023-03-11 00:09:24'),
-(21, 'SLVRBCK-100094033439', 22, '5500.00', 'COD', NULL, 2, 1, NULL, '2023-03-13 08:42:09');
+(21, 'SLVRBCK-100094033439', 22, '5500.00', 'COD', NULL, 2, 1, NULL, '2023-03-13 08:42:09'),
+(22, 'SLVRBCK-100099370896', 23, '8000.00', 'COD', NULL, 2, 1, NULL, '2023-03-14 12:05:53'),
+(23, 'SLVRBCK-100031627712', 24, '6500.00', 'COD', NULL, 2, 1, NULL, '2023-03-14 12:06:20'),
+(24, 'SLVRBCK-10001596220181', 25, '6500.00', 'COD', NULL, 2, 1, NULL, '2023-03-14 12:06:40'),
+(25, 'SLVRBCK-10001472184824', 26, '8000.00', 'COD', NULL, 2, 1, NULL, '2023-03-14 12:06:59');
 
 -- --------------------------------------------------------
 
@@ -147,7 +151,12 @@ INSERT INTO `order_item` (`oitem_id`, `order_id`, `prod_id`, `oitem_qty`, `oitem
 (18, 18, 7, 1, '8000.00', '2023-03-09 07:49:13'),
 (19, 19, 8, 1, '5500.00', '2023-03-10 02:28:47'),
 (20, 20, 9, 1, '5500.00', '2023-03-11 00:09:24'),
-(21, 21, 10, 1, '5500.00', '2023-03-13 08:42:09');
+(21, 21, 10, 1, '5500.00', '2023-03-13 08:42:09'),
+(22, 22, 1, 2, '8000.00', '2023-03-14 11:54:12'),
+(23, 22, 1, 1, '8000.00', '2023-03-14 12:05:53'),
+(24, 23, 2, 1, '6500.00', '2023-03-14 12:06:20'),
+(25, 24, 3, 1, '6500.00', '2023-03-14 12:06:40'),
+(26, 25, 4, 1, '8000.00', '2023-03-14 12:06:59');
 
 -- --------------------------------------------------------
 
@@ -178,10 +187,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`prod_id`, `cat_id`, `prod_name`, `prod_index`, `prod_description`, `prod_price`, `prod_image`, `prod_img1`, `prod_img2`, `prod_img3`, `prod_qty`, `prod_status`, `prod_trending`, `prod_keywords`, `created_at`) VALUES
-(1, 1, 'Asteroid', 'Asteroid-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n  with footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '8000.00', 'Asteroid.png', 'Asteroid.png', 'Asteroid1.png', 'Asteroid3.png', 6, 0, 0, 'Gaming Chair, Black Chair, RGB', '2022-12-27 11:41:22'),
-(2, 1, 'Jupiter', 'Jupiter-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n  with footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '6500.00', 'Jupiter.png', 'Jupiter.png', 'Jupiter1.png', 'Jupiter3.png', 6, 0, 1, 'Gaming Chair, Yellow Gaming Chair, NON-RGB', '2022-12-27 11:43:40'),
-(3, 1, 'Mars', 'Mars-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with colorcorresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n  with footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '6500.00', 'mars1.png', 'mars1.png', 'mars2.png', 'mars3.png', 6, 0, 1, 'Gaming Chair, Red Gaming Chair, NON-RGB', '2022-12-27 11:44:52'),
-(4, 1, 'Mercury', ' Mercury-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n- Colorful LED light belt\r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '8000.00', 'Mercury.png', 'Mercury.png', 'Mercury1.png', 'Mercury3.png', 6, 0, 1, 'White Gaming Chair, RGB, Gaming Chair', '2022-12-30 13:49:03'),
+(1, 1, 'Asteroid', 'Asteroid-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n  with footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '8000.00', 'Asteroid.png', 'Asteroid.png', 'Asteroid1.png', 'Asteroid3.png', 5, 0, 0, 'Gaming Chair, Black Chair, RGB', '2022-12-27 11:41:22'),
+(2, 1, 'Jupiter', 'Jupiter-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n  with footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '6500.00', 'Jupiter.png', 'Jupiter.png', 'Jupiter1.png', 'Jupiter3.png', 5, 0, 1, 'Gaming Chair, Yellow Gaming Chair, NON-RGB', '2022-12-27 11:43:40'),
+(3, 1, 'Mars', 'Mars-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with colorcorresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n  with footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '6500.00', 'mars1.png', 'mars1.png', 'mars2.png', 'mars3.png', 5, 0, 1, 'Gaming Chair, Red Gaming Chair, NON-RGB', '2022-12-27 11:44:52'),
+(4, 1, 'Mercury', ' Mercury-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n- Colorful LED light belt\r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '8000.00', 'Mercury.png', 'Mercury.png', 'Mercury1.png', 'Mercury3.png', 5, 0, 1, 'White Gaming Chair, RGB, Gaming Chair', '2022-12-30 13:49:03'),
 (5, 1, 'Pluto', ' Pluto-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n- With footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '6500.00', 'Pluto.png', 'Pluto.png', 'Pluto1.png', 'Pluto2.png', 6, 0, 1, 'Black Gaming Chair, NON-RGB, Gaming Chair', '2022-12-30 13:50:40'),
 (6, 1, 'Uranus', ' Uranus-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n- With footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '6500.00', 'Uranus.png', 'Uranus.png', 'Uranus1.png', 'Uranus3.png', 6, 1, 0, 'Gaming Chair, NON-RGB, Black Gaming Chair', '2022-12-30 13:52:20'),
 (7, 1, 'Venus', ' Venus-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n   high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n- Colorful LED light belt\r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '8000.00', 'Venus.png', 'Venus.png', 'Venus1.png', 'Venus3.png', 6, 1, 0, 'Gaming Chair, Pink Chair, RGB', '2023-02-22 05:20:30'),
@@ -222,7 +231,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `user_email`, `user_password`, `fname`, `lname`, `contactnum`, `birthday`, `address`, `city`, `region`, `zip`, `image`, `role`, `ip_add`, `token`, `created_at`, `lastactivity`) VALUES
-(1, 'Admin', 'admin@example.com', '123456', 'Super', 'Admin', '09123456789', '2002-02-17', 'Bagumbong Rd.', 'Caloocan City', 'Metro Manila', 1428, 'user.png', 1, '::1', '6dba6c0d74259ec1df26a5c246404a65', '2022-12-29 05:22:41', '2023-03-14 03:36:57'),
+(1, 'Admin', 'admin@example.com', '123456', 'Super', 'Admin', '09123456789', '2002-02-17', 'Bagumbong Rd.', 'Caloocan City', 'Metro Manila', 1428, 'user.png', 1, '::1', '6dba6c0d74259ec1df26a5c246404a65', '2022-12-29 05:22:41', '2023-03-14 12:10:26'),
 (2, 'user1', 'user1@example.com', '123456', 'First1', 'Name', '09123456789', '2023-02-17', 'Address', 'City', 'Region', 1428, '', 0, '::1', '22afd2cd8704fb7477e32149112cfc03', '2023-03-07 13:51:16', '2023-03-07 13:51:16'),
 (3, 'user2', 'user2@example.com', '123456', 'First2', 'Name', '09123456789', '2023-02-17', 'Address', 'City', 'Region', 1428, '', 0, '::1', 'fafbacd3dafb0e7d9826aeeb5bd6d10dSILVERBA', '2023-03-07 13:53:42', '2023-03-07 13:53:42'),
 (4, 'user3', 'user3@example.com', '123456', 'First3', 'Name', '09123456789', '2023-03-07', 'Address', 'City', 'Region', 1428, '', 0, '::1', '4782f353276c236179720a3e5b154851', '2023-03-07 13:58:06', '2023-03-07 13:58:06'),
@@ -243,7 +252,11 @@ INSERT INTO `users` (`user_id`, `username`, `user_email`, `user_password`, `fnam
 (19, 'user18', 'user18@example.com', '123456', 'First18', 'Last', '09123456789', '2023-03-02', 'Adress', 'City', 'Region', 1254, '', 0, '::1', 'f986cc9b96d201f93f70c2d3ddcc806e', '2023-03-13 08:22:54', '2023-03-13 08:22:54'),
 (20, 'user19', 'user19@example.com', '123456', 'First19', 'Last', '09123456789', '2023-03-22', 'Adress', 'City', 'Region', 1254, '', 0, '::1', 'b649b870164d0b376324e518ea6961b4', '2023-03-13 08:24:04', '2023-03-13 08:24:04'),
 (21, 'user20', 'user20@example.com', '123456', 'First20', 'Last', '09123456789', '2023-03-05', 'Adress', 'City', 'Region', 1254, '', 0, '::1', 'f1a8bc37156b16d49befdb327f987b89', '2023-03-13 08:25:40', '2023-03-13 08:25:40'),
-(22, 'user21', 'user21@example.com', '123456', 'First21', 'Last', '09123456789', '2023-03-29', 'Adress', 'City', 'Region', 1254, '', 0, '::1', 'cd7a14e2b2a259aa4f56137ad31cf7e3', '2023-03-13 08:41:44', '2023-03-13 08:41:44');
+(22, 'user21', 'user21@example.com', '123456', 'First21', 'Last', '09123456789', '2023-03-29', 'Adress', 'City', 'Region', 1254, '', 0, '::1', 'cd7a14e2b2a259aa4f56137ad31cf7e3', '2023-03-13 08:41:44', '2023-03-13 08:41:44'),
+(23, 'user22', 'user22@example.com', '123456', 'First22', 'Last', '09123456789', '2023-03-02', 'Adress', 'City', 'Bicol Region', 1254, '', 0, '::1', 'dc4dfe24e6ec39042c3df1935c91c5c1', '2023-03-14 12:01:09', '2023-03-14 12:01:09'),
+(24, 'user23', 'user23@example.com', '123456', 'First23', 'Last', '09123456789', '2023-03-24', 'Adress', 'City', 'Bicol Region', 1254, '', 0, '::1', 'ae19f6d4a52ad66259a8cd540e79a342', '2023-03-14 12:01:43', '2023-03-14 12:01:43'),
+(25, 'user24', 'user24@example.com', '123456', 'First24', 'Last', '09123456789', '2023-03-02', 'Adress', 'City', 'Bicol Region', 1254, '', 0, '::1', '8a19dd78c383cb04f1188b1ed1962e62', '2023-03-14 12:02:24', '2023-03-14 12:02:24'),
+(26, 'user25', 'user25@example.com', '123456', 'First25', 'Last', '09123456789', '2023-03-04', 'Adress', 'City', 'Bicol Region', 1254, '', 0, '::1', '35f7a06cb88be755a49cc096ea96700d', '2023-03-14 12:02:49', '2023-03-14 12:02:49');
 
 --
 -- Indexes for dumped tables
@@ -293,7 +306,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -305,13 +318,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `oitem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `oitem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -323,7 +336,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
