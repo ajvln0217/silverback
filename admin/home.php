@@ -379,8 +379,8 @@ include('./connection/connect.php');
                 $data = "";
                 if (mysqli_num_rows($chart) > 0) {
                   foreach ($chart as $item => $rowdat) {
-                    $prodname[] = $rowdat['prod_name'];
-                    $qty[] = $rowdat['quantity'];
+                    $prodname[] = $rowdat['product_name'];
+                    $qty[] = $rowdat['order_quantity'];
                   }
                 }
                 ?>

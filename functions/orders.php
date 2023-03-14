@@ -76,7 +76,7 @@ if(isset($_SESSION['auth'])){
 
         if($o_run){
             $order_id = mysqli_insert_id($conn);
-            sendNotification(); //Send sa Admin na may bagong Order
+            //sendNotification(); //Send sa Admin na may bagong Order
             foreach ($query_run as $cart => $res) {
 
                 $prod_id = $res['prod_id'];
