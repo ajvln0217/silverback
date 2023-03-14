@@ -72,7 +72,7 @@ function itemReceived(){
 
 function getFrequentPurch(){
     global $conn;
-    $q = "SELECT oi.*, prod.*, o.*, o.order_id, SUM(oi.oitem_qty) AS quantity FROM order_item AS oi INNER JOIN products AS prod ON oi.prod_id = prod.prod_id INNER JOIN orders AS o ON  oi.order_id = o.order_id GROUP BY o.order_id ORDER BY SUM(oi.oitem_qty) DESC;";
+    $q = "SELECT oi.*, prod.*, o.*, o.order_id, SUM(oi.oitem_qty) AS quantity FROM order_item AS oi INNER JOIN products AS prod ON oi.prod_id = prod.prod_id INNER JOIN orders AS o ON  oi.order_id = o.order_id GROUP BY o.order_id ORDER BY SUM(oi.oitem_qty) LIMIT 5;";
     return $q_run = mysqli_query($conn, $q);
 }
 

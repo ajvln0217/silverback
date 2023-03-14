@@ -428,7 +428,7 @@ include('./connection/connect.php');
       data: {
         labels: <?php echo json_encode($prodname); ?>,
         datasets: [{
-          label: 'Frequent Ordered Product',
+          label: 'Top 5 Frequent Ordered Product',
           backgroundcolor: [
             "#5969ff",
             "#5945fd",
