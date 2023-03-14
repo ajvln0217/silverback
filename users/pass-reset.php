@@ -9,44 +9,6 @@ use PHPMailer\PHPMailer\Exception;
 
 require './vendor/autoload.php';
 
-function pass_reset($fname, $lname, $email, $token)
-{
-
-    $mail = new PHPMailer(true);
-
-    $mail->isSMTP();
-    //$mail->SMTPDebug = 2;
-
-    $mail->SMTPAuth   = true;
-    $mail->SMTPSecure = 'tls';
-    $mail->Host       = 'smtp.gmail.com';
-    $mail->Port       = 587;
-
-    $mail->Username   = "silverbackph.official@gmail.com";
-    $mail->Password   = "itsljtcndclskecu";
-    $mail->Mailer     = 'smtp';
-
-    $mail->setFrom('silverbackph.official@gmail.com', 'SilverbackPH');
-    $mail->addAddress($email);
-
-    $mail->isHTML(true);
-    $mail->Subject = 'Silverback | Reset Password';
-
-    $email_body = "
-    <h2>Greetings, $fname $lname</h2>
-    <p>You've recieved this email because you recently requested to reset your password from <b>Silverback Gaming and Office Chair</b>.
-    <br><p>In order for you to continue, kindly open the link mentioned above to reset your password.<br><br>
-    <a href='http://localhost/silverback/users/change-pass.php?token=$token&user_email=$email'>Reset Password</a>
-    <br><br>
-    <p>If you think this mail was send mistakenly nor made not any request from the site, please 
-    disregard this message.<br><br>
-    <p>Thanks, <br>Best Regards, <br><br><b>Silverback PH</b>
-    ";
-
-    $mail->Body = $email_body;
-    $mail->send();
-}
-
 if (isset($_POST['submits'])) {
     $email = mysqli_real_escape_string($conn, $_POST['user_email']);
     $token = md5(rand());
@@ -64,7 +26,6 @@ if (isset($_POST['submits'])) {
         $up_q = mysqli_query($conn, $update_q);
 
         if ($up_q) {
-            pass_reset($fname, $lname, $email, $token);
             $_SESSION['message'] = "We E-mailed you a link for the password reset!";
             header("Location: ./forgot-pass.php");
             exit(0);
