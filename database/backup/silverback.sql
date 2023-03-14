@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2023 at 01:43 PM
+-- Generation Time: Mar 14, 2023 at 04:33 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -58,8 +58,8 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`cat_id`, `cat_name`, `cat_index`, `cat_description`, `cat_status`, `cat_popular`, `cat_image`, `cat_keywords`, `created_at`) VALUES
-(1, 'Gaming Chair', 'Gaming', 'For gamers who love to play more than hours.', 0, 1, 'Jupiter.png', 'Gaming', '2022-12-24 16:04:52'),
-(2, 'Office Chair', 'Office', 'For people who works at home.', 0, 1, 'p1.png', 'Office Chair', '2022-12-26 06:05:15');
+(1, 'Gaming Chairs', 'Gaming', 'For gamers who love to play more than hours.', 0, 1, 'Jupiter.png', 'Gaming', '2022-12-24 16:04:52'),
+(2, 'Office Chairs', 'Office', 'For people who works at home.', 0, 1, 'p1.png', 'Office Chair', '2022-12-26 06:05:15');
 
 -- --------------------------------------------------------
 
@@ -80,6 +80,13 @@ CREATE TABLE `orders` (
   `order_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `tracking_no`, `user_id`, `total_price`, `payment_mode`, `payment_id`, `order_status`, `order_status1`, `comments`, `order_date`) VALUES
+(1, 'SLVRBCK-1000191853508', 2, '8000.00', 'COD', NULL, 2, 1, NULL, '2023-03-09 07:15:49');
+
 -- --------------------------------------------------------
 
 --
@@ -94,6 +101,13 @@ CREATE TABLE `order_item` (
   `oitem_price` decimal(7,2) NOT NULL,
   `oitem_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_item`
+--
+
+INSERT INTO `order_item` (`oitem_id`, `order_id`, `prod_id`, `oitem_qty`, `oitem_price`, `oitem_date`) VALUES
+(1, 1, 1, 1, '8000.00', '2023-03-09 07:15:49');
 
 -- --------------------------------------------------------
 
@@ -127,14 +141,14 @@ INSERT INTO `products` (`prod_id`, `cat_id`, `prod_name`, `prod_index`, `prod_de
 (1, 1, 'Asteroid', 'Asteroid-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n  with footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '8000.00', 'Asteroid.png', 'Asteroid.png', 'Asteroid1.png', 'Asteroid3.png', 8, 0, 0, 'Gaming Chair, Black Chair, RGB', '2022-12-27 11:41:22'),
 (2, 1, 'Jupiter', 'Jupiter-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n  with footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '6500.00', 'Jupiter.png', 'Jupiter.png', 'Jupiter1.png', 'Jupiter3.png', 8, 0, 1, 'Gaming Chair, Yellow Gaming Chair, NON-RGB', '2022-12-27 11:43:40'),
 (3, 1, 'Mars', 'Mars-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with colorcorresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n  with footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '6500.00', 'mars1.png', 'mars1.png', 'mars2.png', 'mars3.png', 8, 0, 1, 'Gaming Chair, Red Gaming Chair, NON-RGB', '2022-12-27 11:44:52'),
-(4, 1, 'Mercury', ' Mercury-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n- Colorful LED light belt\r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '8000.00', 'Mercury.png', 'Mercury.png', 'Mercury1.png', 'Mercury3.png', 8, 0, 1, 'White Gaming Chair, RGB, Gaming Chair', '2022-12-30 13:49:03'),
-(5, 1, 'Pluto', ' Pluto-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n- With footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '6500.00', 'Pluto.png', 'Pluto.png', 'Pluto1.png', 'Pluto2.png', 8, 0, 1, 'Black Gaming Chair, NON-RGB, Gaming Chair', '2022-12-30 13:50:40'),
-(6, 1, 'Uranus', ' Uranus-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n- With footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '6500.00', 'Uranus.png', 'Uranus.png', 'Uranus1.png', 'Uranus3.png', 8, 1, 0, 'Gaming Chair, NON-RGB, Black Gaming Chair', '2022-12-30 13:52:20'),
-(7, 1, 'Venus', ' Venus-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n   high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n- Colorful LED light belt\r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '8000.00', 'Venus.png', 'Venus.png', 'Venus1.png', 'Venus3.png', 8, 1, 0, 'Gaming Chair, Pink Chair, RGB', '2023-02-22 05:20:30'),
-(8, 2, 'Office Chair Pink', ' Pink-Office-Chair', '- Original Thickness PVC\r\n- Adjustable armrest\r\n- 320mm metal base\r\n- Butterfly mechanism + footrest\r\n- Class 3 standard #80L\r\n- Recline 90°-130° molded Foam.\r\n- With LOGO', '5500.00', 'p1.png', 'p1.png', 'p3.png', 'p2.png', 8, 1, 0, 'Office Chair, Pink Chair', '2023-02-22 05:26:54'),
-(9, 2, 'Office Chair Brown', ' Brown-Office-Chair', '- Original Thickness PVC\r\n- Adjustable armrest\r\n- 320mm metal base\r\n- Butterfly mechanism + footrest\r\n- Class 3 standard #80L\r\n- Recline 90°-130° molded Foam.\r\n- With LOGO', '5500.00', 'b1.png', 'b1.png', 'b2.png', 'b3.png', 8, 1, 0, 'Office Chair, Brown', '2023-02-22 05:33:50'),
-(10, 2, 'Office Chair Black', ' Black-Office-Chair', '- Original Thickness PVC\r\n- Adjustable armrest\r\n- 320mm metal base\r\n- Butterfly mechanism + footrest\r\n- Class 3 standard #80L\r\n- Recline 90°-130° molded Foam.\r\n- With LOGO', '5500.00', 'bl1.png', 'bl1.png', 'bl2.png', 'bl3.png', 8, 0, 1, 'Office Chair, Black Chair', '2023-02-22 05:50:23'),
-(11, 2, 'Office Chair White', ' White-Office-Chair', '- Original Thickness PVC\r\n- Adjustable armrest\r\n- 320mm metal base\r\n- Butterfly mechanism + footrest\r\n- Class 3 standard #80L\r\n- Recline 90°-130° molded Foam.\r\n- With LOGO', '5500.00', 'w1.png', 'w1.png', 'w2.png', 'w3.png', 8, 1, 0, 'Office Chair, White Chair', '2023-02-22 05:51:28');
+(4, 1, 'Mercury', 'Mercury-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n- Colorful LED light belt\r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '8000.00', 'Mercury.png', 'Mercury.png', 'Mercury1.png', 'Mercury3.png', 8, 0, 1, 'White Gaming Chair, RGB, Gaming Chair', '2022-12-30 13:49:03'),
+(5, 1, 'Pluto', 'Pluto-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n- With footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '6500.00', 'Pluto.png', 'Pluto.png', 'Pluto1.png', 'Pluto2.png', 8, 0, 1, 'Black Gaming Chair, NON-RGB, Gaming Chair', '2022-12-30 13:50:40'),
+(6, 1, 'Uranus', 'Uranus-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n  high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n- With footrest part \r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '6500.00', 'Uranus.png', 'Uranus.png', 'Uranus1.png', 'Uranus3.png', 8, 1, 0, 'Gaming Chair, NON-RGB, Black Gaming Chair', '2022-12-30 13:52:20'),
+(7, 1, 'Venus', 'Venus-Gaming-Chair', '- High quality PU\r\n- High quality molded foam cushion and\r\n   high-density primary foam backrest\r\n- Nylon base 350mm with color corresponding covers\r\n- Nylon moveable 2D armrests\r\n- 100mm class 3 gas lift with 3-layer cover\r\n- Colorful LED light belt\r\n- PU headrest & lumbar support\r\n- Nylon color-corresponding castor*5', '8000.00', 'Venus.png', 'Venus.png', 'Venus1.png', 'Venus3.png', 8, 1, 0, 'Gaming Chair, Pink Chair, RGB', '2023-02-22 05:20:30'),
+(8, 2, 'Office Chair Pink', 'Pink-Office-Chair', '- Original Thickness PVC\r\n- Adjustable armrest\r\n- 320mm metal base\r\n- Butterfly mechanism + footrest\r\n- Class 3 standard #80L\r\n- Recline 90°-130° molded Foam.\r\n- With LOGO', '5500.00', 'p1.png', 'p1.png', 'p3.png', 'p2.png', 8, 1, 0, 'Office Chair, Pink Chair', '2023-02-22 05:26:54'),
+(9, 2, 'Office Chair Brown', 'Brown-Office-Chair', '- Original Thickness PVC\r\n- Adjustable armrest\r\n- 320mm metal base\r\n- Butterfly mechanism + footrest\r\n- Class 3 standard #80L\r\n- Recline 90°-130° molded Foam.\r\n- With LOGO', '5500.00', 'b1.png', 'b1.png', 'b2.png', 'b3.png', 8, 1, 0, 'Office Chair, Brown', '2023-02-22 05:33:50'),
+(10, 2, 'Office Chair Black', 'Black-Office-Chair', '- Original Thickness PVC\r\n- Adjustable armrest\r\n- 320mm metal base\r\n- Butterfly mechanism + footrest\r\n- Class 3 standard #80L\r\n- Recline 90°-130° molded Foam.\r\n- With LOGO', '5500.00', 'bl1.png', 'bl1.png', 'bl2.png', 'bl3.png', 8, 0, 1, 'Office Chair, Black Chair', '2023-02-22 05:50:23'),
+(11, 2, 'Office Chair White', 'White-Office-Chair', '- Original Thickness PVC\r\n- Adjustable armrest\r\n- 320mm metal base\r\n- Butterfly mechanism + footrest\r\n- Class 3 standard #80L\r\n- Recline 90°-130° molded Foam.\r\n- With LOGO', '5500.00', 'w1.png', 'w1.png', 'w2.png', 'w3.png', 8, 1, 0, 'Office Chair, White Chair', '2023-02-22 05:51:28');
 
 -- --------------------------------------------------------
 
@@ -157,6 +171,7 @@ CREATE TABLE `users` (
   `zip` int(10) NOT NULL,
   `image` varchar(100) DEFAULT NULL,
   `role` tinyint(4) NOT NULL DEFAULT 0,
+  `ip_add` varchar(12) NOT NULL,
   `token` varchar(40) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `lastactivity` timestamp NULL DEFAULT current_timestamp()
@@ -166,8 +181,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `user_email`, `user_password`, `fname`, `lname`, `contactnum`, `birthday`, `address`, `city`, `region`, `zip`, `image`, `role`, `token`, `created_at`, `lastactivity`) VALUES
-(1, 'Admin', 'silverbackph.official@gmail.com', '123456', 'Super', 'Admin', '09123456789', '2002-02-17', 'Bagumbong Rd.', 'Caloocan City', 'Metro Manila', 1428, 'user.png', 1, '6dba6c0d74259ec1df26a5c246404a65', '2022-12-29 05:22:41', '2023-03-07 08:47:58');
+INSERT INTO `users` (`user_id`, `username`, `user_email`, `user_password`, `fname`, `lname`, `contactnum`, `birthday`, `address`, `city`, `region`, `zip`, `image`, `role`, `ip_add`, `token`, `created_at`, `lastactivity`) VALUES
+(1, 'Admin', 'admin@example.com', '123456', 'Super', 'Admin', '09123456789', '2002-02-17', 'Bagumbong Rd.', 'Caloocan City', 'Metro Manila', 1428, 'user.png', 1, '::1', '6dba6c0d74259ec1df26a5c246404a65', '2022-12-29 05:22:41', '2023-03-13 08:25:08'),
+(2, 'user1', 'user1@example.com', '123456', 'User', 'Name', '09123456789', '2023-02-17', 'Address', 'City', 'Region', 1428, '', 0, '::1', '22afd2cd8704fb7477e32149112cfc03', '2023-03-07 13:51:16', '2023-03-07 13:51:16'),
+(3, 'user2', 'user2@example.com', '123456', 'First', 'Name', '09123456789', '2023-02-17', 'Address', 'City', 'Region', 1428, '', 0, '::1', 'fafbacd3dafb0e7d9826aeeb5bd6d10dSILVERBA', '2023-03-07 13:53:42', '2023-03-07 13:53:42'),
+(4, 'user3', 'user3@example.com', '123456', 'First', 'Name', '09123456789', '2023-03-07', 'Address', 'City', 'Region', 1428, '', 0, '::1', 'd249e7152534b7758e579925999aee92', '2023-03-07 13:58:06', '2023-03-07 13:58:06'),
+(5, 'user4', 'user4@example.com', '123456', 'First', 'Last', '09123456789', '2023-03-12', 'Address', 'City', 'Region', 1428, '', 0, '::1', '407fbbc412595e9ff3945acd3a3f3215', '2023-03-12 10:31:34', '2023-03-12 10:43:58');
 
 --
 -- Indexes for dumped tables
@@ -217,7 +236,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -229,13 +248,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `oitem_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `oitem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -247,7 +266,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
